@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148159256-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-148159256-1');
+		</script>
+        <meta charset="utf-8">
+        <title>SEDutil: Self Encrypting Drive Utility</title>
+    	<meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 
+Power Template 
+https://templatemo.com/tm-508-power    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/templatemo_misc.css">
+        <link rel="stylesheet" href="css/templatemo_style.css">
+        <link rel="stylesheet" href="css/owl-carousel.css">
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+
+        <div class="site-main" id="sTop">
+            <div class="site-header">
+                <div class="main-header">
+                    <div class="container">
+                        <div id="menu-wrapper">
+                            <div class="row">
+                                <nav class="navbar navbar-inverse" role="navigation">
+                                    <div class="navbar-header">
+                                        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a href="#top" class="navbar-brand">SEDutil</a>
+                                        <div id="main-nav" class="collapse navbar-collapse">
+                                            <ul class="menu-first nav navbar-nav" style="margin-right: 20px;">
+                                                <li class="active"><a href="#">Home</a></li>
+                                                <li><a href="#overview">Overview</a></li>
+												<li><a href="#download">Download</a></li>
+												<li><a href="#compatible">Compatible Drives</a></li>
+                                                <li><a href="#faq">FAQs</a></li>   
+                                            </ul>                                    
+                                        </div> <!-- /.main-menu -->
+                                    </div>
+                                </nav>
+                            </div> <!-- /.row -->
+                        </div> <!-- /#menu-wrapper -->                        
+                    </div> <!-- /.container -->
+                </div> <!-- /.main-header -->
+            </div> <!-- /.site-header -->
+        </div> <!-- /.site-main -->
+
+
+        <div class="banner" id="download">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="banner-content">                           
+                            <h2>SEDutil</h2>
+							<h6>Self Encrypting Drive Utility</h6>
+							<h5>Pre-Boot NVME TCG OPAL 2.0 Locking and Unlocking for Windows 10</h6>
+                            <ul class="buttons">
+                                <li>
+                                    <div class="primary-button">
+                                        <a href="https://github.com/ChubbyAnt/sedutil/releases" target="blank">Download Now</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="secondary-button">
+                                        <a href="https://github.com/ChubbyAnt/sedutil" target="blank">Source Code</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="intro" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Yes, SEDutil secures your TCG OPAL 2.0 Windows 10 boot drive!</h4>
+                        <h6>Windows 10 re-installation not required after TCG OPAL initialization!</h6>
+						<h7>(Hardware Bitlocker requires clean reinstallation of Windows after TCG OPAL initialization, aaargh!!!)</h7>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section id="about" class="page-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="service-item first-service">
+                            <div class="icon">
+                                <img src="img/iconmonstr-laptop-1-240-w-64.png" alt="">
+                            </div>
+                            <h4>Pre-Boot Authentication</h4>
+                            <p>Uses the built-in encryption in your TCG OPAL 2.0 drive.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-item second-service">
+                            <div class="icon">
+                                <img src="img/second-service-icon.png" alt="">
+                            </div>
+                            <h4>NVME &amp; SATA</h4>
+                            <p>Pre-Boot Authentication for NVME &amp; SATA drives.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-item third-service">
+                            <div class="icon">
+                                <img src="img/third-service-icon.png" alt="">
+                            </div>
+                            <h4>Open Source</h4>
+                            <p>SEDutil is 100% open source and free to use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+<section id="compatible">
+	<div class="container">
+		<div style="margin-left:10%; margin-right:10%">
+			<div class="section-title" style="text-align: center; margin-top: 10px; margin-bottom: 25px;">
+				<h3>SEDutil Compatible TCG OPAL 2.0 NVME Drives</h3>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div style="margin-left:10%; margin-right:10%">
+		<script type="text/javascript">
+		amzn_assoc_placement = "adunit0";
+		amzn_assoc_search_bar = "false";
+		amzn_assoc_tracking_id = "sedutil-001-20";
+		amzn_assoc_ad_mode = "manual";
+		amzn_assoc_ad_type = "smart";
+		amzn_assoc_marketplace = "amazon";
+		amzn_assoc_region = "US";
+		amzn_assoc_title = "";
+		amzn_assoc_linkid = "d1d4616feaebbc79d1a2a60b2821f224";
+		amzn_assoc_asins = "B07BYHGNB5,B01LXS4TYB,B07BN217QG,B07MFZY2F2";
+		</script>
+		<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+		</div>
+	</div>
+</section>		
+
+<!-- =========================
+    FAQ SECTION   
+============================== -->
+<section id="faq">
+	<div class="container">
+		<div class="row">
+
+			<!-- Section title
+			================================================== -->
+			<div class="wow bounceIn col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center">
+				<div class="section-title">
+					<h3>Frequently Asked Questions</h3>
+				</div>
+			</div>
+
+			<div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="0.9s">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOne">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          							 What is SEDutil?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      						<div class="panel-body">
+        						<p>SEDutil is an open source set of tools that provides locking and unlocking of TCG OPAL 2.0 boot and non-boot drives in Windows and Linux.</p>
+      						</div>
+   						 </div>
+ 					</div>
+					
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOneg">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOneg" aria-expanded="false" aria-controls="collapseOneg">
+          							 How much does SEDutil cost?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOneg" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneg">
+      						<div class="panel-body">
+        						<p>SEDutil is available for the low, low price of free. SEDutil is open source. The original source code for SEDutil is <a href="https://github.com/Drive-Trust-Alliance/sedutil" target="blank">here</a>. Our version of SEDutil is <a href="https://github.com/ChubbyAnt/sedutil" target="blank">here</a>.</p>
+      						</div>
+   						 </div>
+ 					</div>					
+
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOneb">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOneb" aria-expanded="false" aria-controls="collapseOneb">
+          							 What drives does SEDutil work with?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOneb" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneb">
+      						<div class="panel-body">
+        						<p>SEDutil works with almost any TCG OPAL 2.0 drive, including the <a href="https://amzn.to/2QhbQJD" target="blank">Samsung 960 EVO Pro</a>, <a href="https://amzn.to/2QfOiEL" target="blank">Samsung 970 Evo</a>, <a href="https://amzn.to/2Od6agO" target="blank">Samsung 970 Evo Plus</a>, and more.</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOnex">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOnex" aria-expanded="false" aria-controls="collapseOnex">
+          							 Why is using SEDutil better than hardware Bitlocker?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOnex" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOnex">
+      						<div class="panel-body">
+        						<p>Hardware Bitlocker is great, except (1) some implementations of hardware Bitlocker require a complete clean re-installation of Windows after TCG OPAL activation (hint, very inconvenient), and (2) hardware Bitlocker is so integrated into the Windows system that Windows Update issues arise that may lock access to your computer.</p> 
+								<p>Have you ever been on a business trip, you get to your hotel late at night, and you turn on your notebook to be greeted by the dreaded Bitlocker "enter recovery key for this drive" message, because unbeknownst to you a random Windows KB* update pushed through and made some change that Bitlocker determined to be a change requiring reauthentication with the recovery key?</p>
+      						</div>
+   						 </div>
+ 					</div>
+					
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOney">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOney" aria-expanded="false" aria-controls="collapseOney">
+          							 Why is using SEDutil better than software Bitlocker?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOney" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOney">
+      						<div class="panel-body">
+        						<p>First, see "Why is using SEDutil better than hardware Bitlocker?" above.</p> 
+								<p>Second, although it is true that modern CPUs have acceleration code that "only results in a 1%-2% performance hit when using software Bitlocker" is technically true, that is not what happens in real life use. When you have 20 Chrome tabs open, while you are watching YouTube, while you have a VM compiling something in the background, and then you try to unzip a 20gb compressed file, let us know what happens with that "only 1%-2% performance hit."</p>
+								<p>Third, if you are using a notebook on battery and you are not doing intense work, then battery life will not take much of a hit with software Bitlocker. But, if you are actually doing CPU and disk intensive work, software Bitlocker crushes battery life.</p>
+      						</div>
+   						 </div>
+ 					</div>					
+
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOnec">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOnec" aria-expanded="false" aria-controls="collapseOnec">
+          							 Does SEDutil work with AMD Ryzen and Intel systems?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOnec" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOnec">
+      						<div class="panel-body">
+        						<p>Yes. The original SEDutil did not work with many AMD Ryzen systems. Our version of SEDutil allows users of AMD Ryzen systems to lock and unlock NVME Windows 10 boot drives via pre-boot authentication.</p>
+								<p>The original SEDutil and our version works with Intel systems.</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+  					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingOned">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOned" aria-expanded="false" aria-controls="collapseOned">
+          							 Is there any downside to using SEDutil to secure my NVME boot drive?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseOned" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOned">
+      						<div class="panel-body">
+        						<p>In order to use SEDutil for pre-boot authentication and unlocking of a NVME Windows 10 boot drive, you must disable Secure Boot in your system BIOS. Some users might consider that to be a downside.</p>
+								<p>Sleep does not work with SEDutil and Windows 10. Instead, you have to use hibernate. Hibernation is nearly insant with NVME, so this is probably not a downside. Years ago there was a concern with excessive hibernation and SSD write cycles. But, that is not a concern anymore with today's NVME write cycle tolerance.</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+    				<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingTwo">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          							How long has SEDutil been around?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      						<div class="panel-body">
+                            	<p>SEDutil has been around for more than 5 years. The original code for SEDutil is <a href="https://github.com/Drive-Trust-Alliance/sedutil" target="blank">here</a>. Our version of SEDutil is <a href="https://github.com/ChubbyAnt/sedutil" target="blank">here</a>.</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingThree">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          							Can I lose all my data if I use SEDutil?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      						<div class="panel-body">
+                            	<p>Yes, you might! Anytime you are running commands to setup encryption on a drive your data is at risk. Do not attempt to use SEDutil until you have backed up your data!</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingThreeb">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThreeb" aria-expanded="false" aria-controls="collapseThreeb">
+          							Does SEDutil support sleep?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseThreeb" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeb">
+      						<div class="panel-body">
+								<p>Sleep does not work with SEDutil in Windows 10. Instead, you have to use hibernate. Hibernation is nearly insant with NVME, so this is probably not a downside. Years ago there was a concern with excessive hibernation and SSD write cycles. But, that is not a concern anymore with today's NVME write cycle tolerance.</p>
+      						</div>
+   						 </div>
+ 					</div>
+
+ 					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingFour">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          							Does SEDutil unlock TCG OPAL 2.0 NVME boot drives?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      						<div class="panel-body">
+                            	<p>Yes! Via pre-boot authentication, SEDutil unlocks NVME Windows 10 boot drives.</p>
+      						</div>
+   						 </div>
+ 					 </div>
+
+					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingFive">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          							Do I have to reinstall windows after TCG OPAL activation?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      						<div class="panel-body">
+                            	<p>No! Unlike the Samsung encryption process for activating hardware Bitlocker in Windows 10, reinstallation of Windows is not required after initializing hardware full disk encryption (FDE) with SEDutil.</p>
+      						</div>
+   						 </div>
+ 					 </div>
+
+					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingSix">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          							Why did you create SEDutil.com?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      						<div class="panel-body">
+                            	<p>After incredible frustration with enabling hardware Bitlocker with Windows 10, we searched for alternatives. SEDutil appeared to be an alternative, but the documentation was extremely poor and it was hard to tell if it was really a viable solution.</p>
+								<p>We attempted to use SEDutil and found it to be amazing. We made minor tweaks to the code, implemented enhanced security protocols (SHA512 vs SHA1 password hashing) and published our work to help others with similar frustrations. </p>
+      						</div>
+   						 </div>
+ 					 </div>
+					 
+					 <div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingSeven">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          							Where is the source code for SEDutil?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+      						<div class="panel-body">
+                            	<p>The original source code for SEDutil is <a href="https://github.com/Drive-Trust-Alliance/sedutil" target="blank">here</a>. Our version of SEDutil is <a href="https://github.com/ChubbyAnt/sedutil" target="blank">here</a>.</p>
+      						</div>
+   						 </div>
+ 					 </div>
+
+					<div class="panel panel-default">
+   						<div class="panel-heading" role="tab" id="headingSevenb">
+      						<h4 class="panel-title">
+        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSevenb" aria-expanded="false" aria-controls="collapseSevenb">
+          							Does SEDutil.com offer support in the event something goes wrong?
+        						</a>
+      						</h4>
+    					</div>
+   						<div id="collapseSevenb" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSevenb">
+      						<div class="panel-body">
+                            	<p>Support? No way! SEDutil is open source. By jumping on the SEDutil bandwagon you get to experience the join and pain of dealing with open source software. When chose SEDutil you chose to risk it all. Good luck!</p>
+                            	<p>There is not support, but there are resources available. You can drop a question in the comment section below, you can see our SEDutil issue section on <a href="https://github.com/ChubbyAnt/sedutil/issues" target="blank">Github</a>, or you can look into the original SEDutil issue section on <a href="https://github.com/Drive-Trust-Alliance/sedutil/issues" target="blank">Github</a> - keep in mind, our version of SEDutil implements SHA512 password hashing, and therefore it is not backward compatibile with standard SEDutil SHA1 password hashing.</p>																
+      						</div>
+   						 </div>
+ 					 </div>
+
+ 				 </div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+        <div class="links2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="banner-content-2">                           
+                            <ul class="buttons">
+                                <li>
+                                    <div class="primary-button">
+                                        <a href="https://github.com/ChubbyAnt/sedutil/releases" target="blank">Download Now</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="secondary-button">
+                                        <a href="https://github.com/ChubbyAnt/sedutil" target="blank">Source Code</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<section id="comments">
+<div class="container">
+<div style="margin-left:7%; margin-right:7%">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'https://sedutil.com/';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'https://sedutil.com/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sedutil.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>                            
+</div>                            
+</section>
+
+<section id="footerlead">
+	<div class="container">
+		<div style="margin-left:10%; margin-right:10%">
+		<script type="text/javascript">
+		amzn_assoc_placement = "adunit0";
+		amzn_assoc_search_bar = "false";
+		amzn_assoc_tracking_id = "sedutil-001-20";
+		amzn_assoc_ad_mode = "manual";
+		amzn_assoc_ad_type = "smart";
+		amzn_assoc_marketplace = "amazon";
+		amzn_assoc_region = "US";
+		amzn_assoc_title = " ";
+		amzn_assoc_linkid = "4cc463d729b08db21305e9a6676a9276";
+		amzn_assoc_asins = "B07MFZY2F2,B07BN217QG,B07BYHGNB5,B01LYRCIPG";
+		</script>
+		<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+		</div>
+	</div>
+</section>	
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12" style="color:#FFF; padding-top:25px">
+
+					SEDutil.com is reader-supported. When you buy through links on our site we may earn an affiliate commission. SEDutil.com is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com and affiliated sites.
+                    </div>
+                    <div class="col-md-2 col-md-offset-2 col-sm-12">
+                        <div class="back-to-top">
+                            <a href="#top">
+                                <i class="fa fa-angle-up"></i>
+                                back to top
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+
+    <script id="dsq-count-scr" src="//sedutil.disqus.com/count.js" async></script>        
+    </body>
+</html>
