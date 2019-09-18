@@ -103,7 +103,7 @@ https://templatemo.com/tm-508-power    text-align: center;
                 <div class="row">
                     <div class="col-md-12">
                         <h4>SEDutil secures your TCG OPAL 2.0 Windows 10 boot drive</h4>
-                        <h6>Windows 10 re-installation not required after TCG OPAL initialization</h6>
+                        <h6>Windows 10 reinstallation NOT required after TCG OPAL initialization</h6>
 						<h7>(Hardware Windows Bitlocker requires clean reinstallation of Windows after TCG OPAL initialization)</h7>
                     </div>
                 </div>
@@ -245,8 +245,8 @@ https://templatemo.com/tm-508-power    text-align: center;
     					</div>
    						<div id="collapseOnex" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOnex">
       						<div class="panel-body">
-        						<p>Hardware Bitlocker is great, except (1) some implementations of hardware Bitlocker require a complete clean re-installation of Windows after TCG OPAL activation (hint, very inconvenient), and (2) hardware Bitlocker is so integrated into the Windows system that Windows Update issues arise that may lock access to your computer.</p> 
-								<p>Have you ever been on a business trip, you get to your hotel late at night, and you turn on your notebook to be greeted by the dreaded Bitlocker "enter recovery key for this drive" message, because unbeknownst to you a random Windows KB* update pushed through and made some change that Bitlocker determined to be a change requiring reauthentication with the recovery key?</p>
+        						<p>Hardware Bitlocker is great, except (1) some implementations of hardware Bitlocker require a complete clean reinstallation of Windows after TCG OPAL activation (hint, very inconvenient), and (2) hardware Bitlocker is so integrated into the Windows system that Windows Update issues arise that may lock access to your computer.</p> 
+								<p>Have you ever been on a business trip, you get to your hotel late at night, and you turn on your notebook to be greeted by the dreaded Bitlocker "enter recovery key for this drive" message, because unbeknownst to you a random Windows KB* update pushed through and made some change that Bitlocker determined to be system weirdness like "an unexpected configuration change, or another security event" requiring reauthentication with the recovery key? Don't think this can happen to you? <a href="https://answers.microsoft.com/en-us/windows/forum/all/win-10-upgrade-locked-out-by-bitlocker-no-recovery/b8ea2b2b-00c5-4f9b-870e-896acdaa5f06 target="blank">Good luck with that!</a></p> 
       						</div>
    						 </div>
  					</div>
@@ -263,7 +263,7 @@ https://templatemo.com/tm-508-power    text-align: center;
       						<div class="panel-body">
         						<p>First, see "Why is using SEDutil better than hardware Bitlocker?" above.</p> 
 								<p>Second, although it is true that modern CPUs have acceleration code that "only results in a 1%-2% performance hit when using software Bitlocker" is technically true, that is not what happens in real life use. When you have 20 Chrome tabs open, while you are watching YouTube, while you have a VM compiling something in the background, and then you try to unzip a 20gb compressed file, let us know what happens with that "only 1%-2% performance hit."</p>
-								<p>Third, if you are using a notebook on battery and you are not doing intense work, then battery life will not take much of a hit with software Bitlocker. But, if you are actually doing CPU and disk intensive work, software Bitlocker crushes battery life.</p>
+								<p>Third, if you are using a notebook on battery and you are not doing intense work, then battery life will not take much of a hit with software Bitlocker. But, if you are doing CPU and disk intensive work software Bitlocker crushes battery life while also making your user experience sad face inducing.</p>
       						</div>
    						 </div>
  					</div>					
@@ -325,7 +325,8 @@ https://templatemo.com/tm-508-power    text-align: center;
     					</div>
    						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       						<div class="panel-body">
-                            	<p>Yes, you might! Anytime you are running commands to setup encryption on a drive your data is at risk. Do not attempt to use SEDutil until you have backed up your data!</p>
+                            	<p>Oh yes, you might!</p>
+								<p>Anytime you are running commands to setup encryption on a drive your data is at risk. Do not attempt to use SEDutil until you have backed up your data!</p>
       						</div>
    						 </div>
  					</div>
@@ -340,7 +341,8 @@ https://templatemo.com/tm-508-power    text-align: center;
     					</div>
    						<div id="collapseThreeb" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeb">
       						<div class="panel-body">
-								<p>Sleep does not work with SEDutil in Windows 10. Instead, you have to use hibernate. Hibernation is nearly insant with NVME, so this is probably not a downside. Years ago there was a concern with excessive hibernation and SSD write cycles. But, that is not a concern anymore with today's NVME write cycle tolerance.</p>
+								<p>Sleep does not work with SEDutil in Windows. Instead, you have to use hibernate. Hibernation is nearly insant with NVME, so this is probably not a downside.</p> 
+								<p>Years ago there was a concern with excessive hibernation and SSD write cycles. But, that is not a concern anymore with today's NVME write cycle tolerance.</p>
       						</div>
    						 </div>
  					</div>
@@ -349,13 +351,13 @@ https://templatemo.com/tm-508-power    text-align: center;
    						<div class="panel-heading" role="tab" id="headingFour">
       						<h4 class="panel-title">
         						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          							Does SEDutil unlock TCG OPAL 2.0 NVME boot drives?
+          							Does SEDutil unlock TCG OPAL 2.0 NVME boot drives in Windows 10?
         						</a>
       						</h4>
     					</div>
    						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       						<div class="panel-body">
-                            	<p>Yes! Via pre-boot authentication, SEDutil unlocks NVME Windows 10 boot drives.</p>
+                            	<p>Yes! Via pre-boot authentication, SEDutil unlocks NVME Windows 10 boot drives. It is amazing.</p>
       						</div>
    						 </div>
  					 </div>
@@ -370,7 +372,8 @@ https://templatemo.com/tm-508-power    text-align: center;
     					</div>
    						<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
       						<div class="panel-body">
-                            	<p>No! Unlike the Samsung encryption process for activating hardware Bitlocker in Windows 10, reinstallation of Windows is not required after initializing hardware full disk encryption (FDE) with SEDutil.</p>
+                            	<p>No!</p>
+								<p>Unlike the Samsung encryption process for activating hardware Bitlocker in Windows 10, reinstallation of Windows is not required after initializing hardware full disk encryption (FDE) with SEDutil.</p>
       						</div>
    						 </div>
  					 </div>
@@ -417,8 +420,8 @@ https://templatemo.com/tm-508-power    text-align: center;
    						<div id="collapseSevenb" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSevenb">
       						<div class="panel-body">
                             	<p>Support? No way! Are you kidding?</p>
-								<p>SEDutil is open source. By jumping on the SEDutil bandwagon you get to experience the join and pain of dealing with open source software. When chose SEDutil you chose to risk it all because that is how you live your life. Bravo!</p>
-                            	<p>There is not support for SEDutil, but there are resources available. You can drop a question in the comment section below, you can see our SEDutil issue section on <a href="https://github.com/ChubbyAnt/sedutil/issues" target="blank">Github</a>, or you can look into the original SEDutil issue section on <a href="https://github.com/Drive-Trust-Alliance/sedutil/issues" target="blank">Github</a> - keep in mind, our version of SEDutil implements SHA512 password hashing, and therefore it is not backward compatibile with standard SEDutil SHA1 password hashing. If you don't know what any of this means then you should probably run, run away fast and just stick with software Bitlocker before you lose all of your data.</p>
+								<p>SEDutil is open source. By jumping on the SEDutil bandwagon you get to experience the join and pain of dealing with open source software. When you chose SEDutil you chose to risk it all because that is how you live your life. Bravo!</p>
+                            	<p>There is no support for SEDutil, but there are resources available. You can drop a question in the comment section below, you can see our SEDutil issue section on <a href="https://github.com/ChubbyAnt/sedutil/issues" target="blank">Github</a>, or you can look into the original SEDutil issue section on <a href="https://github.com/Drive-Trust-Alliance/sedutil/issues" target="blank">Github</a> - keep in mind, our version of SEDutil implements SHA512 password hashing, and therefore it is not backward compatibile with standard SEDutil SHA1 password hashing. If you don't know what any of this means then you should probably run, run away fast and just stick with software Bitlocker before you lose all of your data.</p>
 								<p>If you think Bitlocker is garbage but don't want to risk it all with sketchy open source software like SEDutil and you are looking for a tool with customer support for pre-boot authentication for your fancy TCG OPAL 2.0 Self Encrypting Drive (SED), then you should check out the non-free <a href="https://www.winmagic.com/products" target="blank">SecureDoc WinMagic</a>.</p> 
       						</div>
    						 </div>
@@ -500,7 +503,6 @@ s.setAttribute('data-timestamp', +new Date());
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-12" style="color:#FFF; padding-top:25px">
-
 					SEDutil.com is reader-supported. When you buy through links on our site we may earn an affiliate commission. SEDutil.com is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com and affiliated sites.
                     </div>
                     <div class="col-md-2 col-md-offset-2 col-sm-12">
