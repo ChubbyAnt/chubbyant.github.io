@@ -556,6 +556,12 @@ s.setAttribute('data-timestamp', +new Date());
                 </div>
             </div>
         </footer>
-      		
+		<script>
+			$(document).ready(function () {
+				$(".navbar-nav li a").click(function(event) {
+				$(".navbar-collapse").collapse('hide');
+				});
+			});
+		</script>		
     </body>
 </html>
