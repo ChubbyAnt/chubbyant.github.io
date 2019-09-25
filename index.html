@@ -175,9 +175,276 @@ https://templatemo.com/tm-508-power    text-align: center;
 	</div>
 </section>		
 
+<section id="compatible">
+	<div class="container">
+					<div class="section-title" style="text-align:center">
+					<h3>How to Use SEDutil for Windows 10 Preboot Authentication</h3>
+				</div>
+		<div style="margin-left:10%; margin-right:10%">
+<h3 id="encryptingyourdrive">Encrypting Your Drive</h3>
+
+<p>For the most comprehensive information, review <a href="https://github.com/Drive-Trust-Alliance/sedutil/wiki/Encrypting-your-drive" target="blank">this first:</a></p>
+
+<p>Both the PBA and rescue systems use the us_english keyboard. This can cause issues when setting the password on your normal operating system if you use another keyboard mapping. To make sure the PBA recognizes your password you are encouraged to set up you drive from the rescue system as described on this page.</p>
+
+<h3 id="prepareabootablerescuesystem">Prepare a bootable rescue system</h3>
+
+<p>These are the instructions for modern UEFI NVME equipped systems using SEDutil OPAL locking and unlocking utility as a windows pre-boot bootloader:</p>
+
+<p>*UEFI support currently requires that Secure Boot be turned off</p>
+
+<p><span style="font-weight:700">BACKUP YOUR ENTIRE DRIVE before proceeding. You may LOSE ALL YOUR DATA by following these instructions!</span></p>
+
+<p>Download the RESCUE64-1.15.*.img.gz rescue image from <a href="https://github.com/ChubbyAnt/sedutil/releases" target="blank">here</a>.</p>
+
+<p>Transfer the Rescue image to the USB stick with a program like <a href="https://www.balena.io/etcher/" target="blank">Balena Etcher</a>.</p>
+
+<p>Restart your computer, enter the BIOS, enable "legacy boot" or "CSM" or "Compatility Mode" - AND - disable secure boot.</p>
+
+<p>Boot the USB thumb drive with the rescue system on it. You will see the Login prompt, enter "root" there is no password so you will get a root shell prompt.</p>
+
+<p>enter the command <code>sedutil-cli --scan</code></p>
+
+<p> Expected Output:</p>
+
+<pre>#sedutil-cli --scan
+Scanning for Opal compliant disks
+/dev/nvme0  2  Samsung SSD 960 EVO 250GB                2B7QCXE7
+/dev/sda    2  Crucial_CT250MX200SSD1                   MU04    
+/dev/sdb   12  Samsung SSD 850 EVO 500GB                EMT01B6Q
+/dev/sdc    2  ST500LT025-1Dh342                        0001SDM7
+/dev/sdd   12  Samsung SSD 850 EVO 250GB                EMT01B6Q
+No more disks present ending scan
+</pre>
+
+<p>Verify that your drive has a 2 in the second column indicating OPAL 2 support. If it doesn't do not proceed, there is something that is preventing sedutil from supporting your drive. If you continue you may erase all of your data.</p>
+
+<h3 id="testthepba">Test the PBA</h3>
+
+<p>Enter the command <code>linuxpba</code> and use a pass-phrase of <code>debug</code>. If you don't use debug as the pass-phrase your system will reboot!
+Expected Output:</p>
+
+<pre>#linuxpba 
+
+DTA LINUX Pre Boot Authorization 
+
+
+Please enter pass-phrase to unlock OPAL drives: *****
+Scanning....
+Drive /dev/nvme0 Samsung SSD 960 EVO 250GB                is OPAL NOT LOCKED   
+Drive /dev/sda   Crucial_CT250MX200SSD1                   is OPAL NOT LOCKED   
+Drive /dev/sdb   Samsung SSD 850 EVO 500GB                is OPAL NOT LOCKED   
+Drive /dev/sdc   ST500LT025-1Dh342                        is OPAL NOT LOCKED   
+Drive /dev/sdd   Samsung SSD 850 EVO 250GB                is OPAL NOT LOCKED   
+</pre>
+
+<p>Verify that Your drive is listed and the that the PBA reports it as "is OPAL"</p>
+
+<p>Issuing the commands in the steps that follow will enable OPAL locking. If you have a problem you will need to follow the steps at the end of these instructions to either disable or remove OPAL locking.</p>
+
+<p>The following steps use /dev/nvme0 as the device and UEFI64-1.15.img.gz for the PBA image, substitute the proper /dev/nvme? for your drive and the proper PBA name for your system</p>
+
+<h3 id="enablelockingandthepba">Enable Locking and the PBA</h3>
+
+<p>Enter the commands below: (Use the password of debug for this test, it will be changed later)  </p>
+
+<pre>gunzip /usr/sedutil/UEFI64-*img.gz 
+sedutil-cli --initialsetup debug /dev/nvme0
+sedutil-cli --enablelockingrange 0 debug /dev/nvme0
+sedutil-cli --setlockingrange 0 lk debug /dev/nvme0
+sedutil-cli --setmbrdone off debug /dev/nvme0
+sedutil-cli --loadpbaimage debug /usr/sedutil/UEFI64-*.img /dev/nvme0 
+</pre>
+
+<p>Expected Output:  </p>
+
+<pre>#sedutil-cli --initialsetup debug /dev/nvme0
+- 14:06:39.709 INFO: takeOwnership complete
+- 14:06:41.703 INFO: Locking SP Activate Complete
+- 14:06:42.317 INFO: LockingRange0 disabled 
+- 14:06:42.694 INFO: LockingRange0 set to RW
+- 14:06:43.171 INFO: MBRDone set on 
+- 14:06:43.515 INFO: MBRDone set on 
+- 14:06:43.904 INFO: MBREnable set on 
+- 14:06:43.904 INFO: Initial setup of TPer complete on /dev/nvme0
+#sedutil-cli --enablelockingrange 0 debug /dev/nvme0
+- 14:07:24.914 INFO: LockingRange0 enabled ReadLocking,WriteLocking
+#sedutil-cli --setlockingrange 0 lk debug /dev/nvme0
+- 14:07:46.728 INFO: LockingRange0 set to LK
+#sedutil-cli --setmbrdone off debug /dev/nvme0
+- 14:08:21.999 INFO: MBRDone set off 
+#gunzip /usr/sedutil/UEFI64-1.15.img.gz 
+#sedutil-cli --loadpbaimage debug /usr/sedutil/UEFI64-1.15.img /dev/nvme0
+- 14:10:55.328 INFO: Writing PBA to /dev/nvme0
+33554432 of 33554432 100% blk=1500 
+- 14:14:04.499 INFO: PBA image  /usr/sedutil/UEFI64.img written to /dev/nvme0
+#
+</pre>
+
+<h3 id="testthepbayesagain">Test the PBA (yes again)</h3>
+
+<p>Enter the command <code>linuxpba</code> and use a pass-phrase of debug  </p>
+
+<p>This second test will verify that your drive really does get unlocked. <br />
+Expected Output:  </p>
+
+<pre>#linuxpba 
+
+DTA LINUX Pre Boot Authorization 
+
+
+Please enter pass-phrase to unlock OPAL drives: *****
+Scanning....
+Drive /dev/nvme0 Samsung SSD 960 EVO 250GB                is OPAL Unlocked   &lt;---  IMPORTANT!!  
+Drive /dev/sda   Crucial_CT250MX200SSD1                   is OPAL NOT LOCKED   
+Drive /dev/sdb   Samsung SSD 850 EVO 500GB                is OPAL NOT LOCKED   
+Drive /dev/sdc   ST500LT025-1Dh342                        is OPAL NOT LOCKED   
+Drive /dev/sdd   Samsung SSD 850 EVO 250GB                is OPAL NOT LOCKED   
+</pre>
+
+<p>Verify that the PBA unlocks your drive, it should say "is OPAL Unlocked" If it doesn't then you will need to follow the steps at the end of this page to either remove OPAL or disable locking.  </p>
+
+<h3 id="setarealpassword">Set a real password</h3>
+
+<p>The SID and Admin1 passwords do not have to match but it makes things easier.  </p>
+
+<pre>edutil-cli --setsidpassword debug yourrealpassword /dev/nvme0
+sedutil-cli --setadmin1pwd debug yourrealpassword /dev/nvme0
+</pre>
+
+<p>Expected Output: </p>
+
+<pre>#sedutil-cli --setsidpassword debug yourrealpassword /dev/nvme0
+#sedutil-cli --setadmin1pwd  debug yourrealpassword /dev/nvme0
+- 14:20:53.352 INFO: Admin1 password changed
+</pre>
+
+<p>Make sure you didn't mistype your password by testing it.  </p>
+
+<pre>sedutil-cli --setmbrdone on yourrealpassword /dev/nvme0</pre>
+
+<p>Expected Output:   </p>
+
+<pre>14:22:21.590 INFO: MBRDone set on </pre>
+
+
+<p>Your drive in now using OPAL locking.  </p>  
+
+<p>You now need to COMPLETELY POWER DOWN YOUR SYSTEM. This will lock the drive so that when you restart your system it will boot the PBA.</p>  
+
+<h3 id="recoverinfo1">Recovery information:  </h3>
+
+<p>If there is an issue after enabling locking you can either disable locking or remove OPAL to continue using your drive without locking.  </p>  
+
+<p>If you want to disable Locking and the PBA, run these commands: </p>  
+
+<pre>
+sedutil-cli -–disableLockingRange 0 <password> <drive>  
+sedutil-cli –-setMBREnable off <password> <drive>  
+</pre>
+
+<pre>
+sedutil-cli --disablelockingrange 0 debug /dev/nvme0
+</pre>
+
+<p>Expected Output: </p>  
+
+<pre>
+14:07:24.914 INFO: LockingRange0 disabled 
+</pre>
+
+<pre>
+sedutil-cli --setmbrenable off debug /dev/nvme0
+</pre>
+
+<p>Expected Output:   </p>
+
+<pre>
+14:08:21.999 INFO: MBREnable set off <
+</pre>
+
+You can re-enable locking and the PBA using this command sequence:  
+
+<pre>
+sedutil-cli -–enableLockingRange 0 <password> <drive>  
+sedutil-cli –-setMBREnable on <password> <drive>   
+</pre>
+
+<pre>
+sedutil-cli --enablelockingrange 0 debug /dev/nvme0</h3>
+</pre>
+
+<p>Expected Output:   </p>
+
+<pre>
+14:07:24.914 INFO: LockingRange0 enabled ReadLocking,WriteLocking
+</pre>
+
+<pre>
+sedutil-cli --setmbrenable on debug /dev/nvme0
+</pre>
+
+<p>Expected Output:   </p>
+
+<pre>
+14:08:21.999 INFO: MBREnable set on 
+</pre>
+
+<p>Some OPAL drives have a firmware bug that will erase all of your data if you issue the commands below. See [Remove OPAL](https://github.com/Drive-Trust-Alliance/sedutil/wiki/Remove-OPAL) for a list of drive/firmware pairs that is know to have been tested.  </p>
+
+<p>To remove OPAL issue these commands:</p>   
+
+<p> sedutil-cli --revertnoerase <password> <drive></p>   
+
+<pre>
+sedutil-cli --revertnoerase debug /dev/nvme0
+</pre>
+
+Expected Output:   </p>
+
+<pre>
+14:22:47.060 INFO: Revert LockingSP complete
+</pre>
+
+<p>Verify that the locking SP has been deactivated: </p>    
+
+<pre>
+sedutil-cli --query {drive}
+</pre>
+
+<p>Look at the query output and make certain that the Locking section shows ```lockingEnabled=N```</p>   
+
+<pre>
+Locking function (0x0002)
+Locked = N, LockingEnabled = N, LockingSupported = Y,
+</pre>
+
+<p>If the query does not show lockingEnabled=N DO NOT CONTINUE with the next step, if you do all your data will be erased.</p>   
+
+<p>Remove OPAL:</p>     
+
+<p>sedutil-cli --reverttper {SIDpassword} {drive} </p>
+
+<pre>
+sedutil-cli --reverttper debug /dev/nvme0
+</pre>
+
+<p>Expected Output:  </p>
+
+<pre>
+14:23:13.968 INFO: revertTper completed successfully
+</pre>
+
+<p>When this is finished the drive will be in a non-opal managed state. This would allow you to do anything that you could have done before starting OPAL management under OPAL. You can also reinitiate OPAL management if you wish.  </p>
+		</div>
+	</div>
+</section>		
+
 <!-- =========================
     FAQ SECTION   
 ============================== -->
+
+
 <section id="faq">
 	<div class="container">
 		<div class="row">
